@@ -18,4 +18,7 @@ npm install -g newman
 # Run the Postman tests
 ######################################################################
 
+curl http://localhost/sugar
+curl http://sugar-web1/sugar
+
 newman run ../data/ProfessorM_PostmanCollection.json -e ../data/ProfessorM_PostmanEnvironment.json
