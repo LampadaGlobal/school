@@ -64,6 +64,14 @@ echo "currentDockerContainer $currentDockerContainer"
 docker network connect sugar710_default $currentDockerContainer
 docker network inspect sugar710_default
 
+echo
+echo "curl http://sugar-web1/sugar/"
+
+echo
+echo curling help
+curl http://localhost/sugar/rest/v10/help
+
 #newman run ../data/ProfessorM_PostmanCollection.json -e ../data/ProfessorM_PostmanEnvironment.json
+
 docker pull postman/newman_ubuntu1404
-docker run -v /Users/lschaefer/git/school/data:/etc/newman -t postman/newman_ubuntu1404 run "ProfessorM_PostmanCollection.json" --environment="ProfessorM_PostmanEnvironment.json"
+docker run -v /Users/lschaefer/git/school/data:/etc/newman --net="host" -t postman/newman_ubuntu1404 run "ProfessorM_PostmanCollection.json" --environment="ProfessorM_PostmanEnvironment.json"
