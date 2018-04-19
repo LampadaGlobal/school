@@ -18,7 +18,6 @@ if [[ -n $currentDockerContainer ]]
 then
     #TODO: customize the stack
     docker network connect sugar710_default $currentDockerContainer
-    docker network inspect sugar710_default
 fi
 
 ######################################################################
@@ -26,4 +25,9 @@ fi
 ######################################################################
 
 #TODO:  customize the volume
-docker run -v /Users/lschaefer/git/school/data:/etc/newman --net="host" -t postman/newman_ubuntu1404 run "ProfessorM_PostmanCollection.json" --environment="ProfessorM_PostmanEnvironment.json"
+# works locally and in jenkins
+#docker run -v /Users/lschaefer/git/school/data:/etc/newman --net="host" -t postman/newman_ubuntu1404 run "ProfessorM_PostmanCollection.json" --environment="ProfessorM_PostmanEnvironment.json"
+
+# testing for Travis
+echo $(pwd)/../data
+docker run -v $(pwd)/../data:/etc/newman --net="host" -t postman/newman_ubuntu1404 run "ProfessorM_PostmanCollection.json" --environment="ProfessorM_PostmanEnvironment.json"
