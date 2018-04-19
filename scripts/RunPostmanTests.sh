@@ -57,4 +57,10 @@ echo
 echo "docker network ls"
 docker network ls
 
+echo
+currentDockerContainer=$(cat /etc/hostname)
+echo "currentDockerContainer $currentDockerContainer"
+docker network connect sugar710_default $currentDockerContainer
+docker network inspect sugar710_default
+
 newman run ../data/ProfessorM_PostmanCollection.json -e ../data/ProfessorM_PostmanEnvironment.json
