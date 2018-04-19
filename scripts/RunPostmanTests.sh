@@ -10,68 +10,20 @@ fi
 # Setup
 ######################################################################
 
-# Install Newman, so we can execute the tests
-#apt-get install npm
-#npm install -g newman
+# Pull the Newman Docker container so we can run the tests
+docker pull postman/newman_ubuntu1404
 
+currentDockerContainer="$(cat /etc/hostname)"
+if [[ -n $currentDockerContainer ]]
+then
+    #TODO: customize the stack
+    docker network connect sugar710_default $currentDockerContainer
+    docker network inspect sugar710_default
+fi
 
 ######################################################################
 # Run the Postman tests
 ######################################################################
 
-echo
-docker ps
-
-echo
-echo "curl http://localhost/sugar"
-curl http://localhost/sugar
-
-echo
-echo "curl http://localhost/sugar/"
-curl http://localhost/sugar/
-
-echo
-echo "curl http://127.0.0.1/sugar"
-curl http://localhost/sugar
-
-echo
-echo "curl http://127.0.0.1/sugar/"
-curl http://localhost/sugar/
-
-echo
-echo "curl http://localhost:80/sugar/"
-curl http://localhost:80/sugar/
-
-echo
-echo "curl http://sugar-web1/sugar/"
-curl http://sugar-web1/sugar/
-
-echo
-echo "curl http://localhost/sugar/rest/v10/oauth2/token"
-curl http://localhost/sugar/rest/v10/oauth2/token
-
-echo
-echo "docker network inspect sugar710_default"
-docker network inspect sugar710_default
-
-echo
-echo "docker network ls"
-docker network ls
-
-echo
-currentDockerContainer="$(cat /etc/hostname)"
-echo "currentDockerContainer $currentDockerContainer"
-docker network connect sugar710_default $currentDockerContainer
-docker network inspect sugar710_default
-
-echo
-echo "curl http://sugar-web1/sugar/"
-
-echo
-echo curling help
-curl http://localhost/sugar/rest/v10/help
-
-#newman run ../data/ProfessorM_PostmanCollection.json -e ../data/ProfessorM_PostmanEnvironment.json
-
-docker pull postman/newman_ubuntu1404
+#TODO:  customize the volume
 docker run -v /Users/lschaefer/git/school/data:/etc/newman --net="host" -t postman/newman_ubuntu1404 run "ProfessorM_PostmanCollection.json" --environment="ProfessorM_PostmanEnvironment.json"
