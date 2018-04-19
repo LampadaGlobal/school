@@ -11,6 +11,7 @@ fi
 ######################################################################
 
 # Install Newman, so we can execute the tests
+sudo apt-get install npm
 npm install -g newman
 
 
