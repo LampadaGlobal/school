@@ -27,6 +27,14 @@ echo "curl http://localhost/sugar/"
 curl http://localhost/sugar/
 
 echo
+echo "curl http://127.0.0.1/sugar"
+curl http://localhost/sugar
+
+echo
+echo "curl http://127.0.0.1/sugar/"
+curl http://localhost/sugar/
+
+echo
 echo "curl http://localhost:80/sugar/"
 curl http://localhost:80/sugar/
 

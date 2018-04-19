@@ -4,7 +4,7 @@
   "values": [
     {
       "key": "url",
-      "value": "http://localhost/sugar",
+      "value": "http://127.0.0.1/sugar",
       "enabled": true,
       "type": "text"
     },
