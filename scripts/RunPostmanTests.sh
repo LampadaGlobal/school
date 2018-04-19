@@ -19,6 +19,9 @@ npm install -g newman
 ######################################################################
 
 echo
+docker ps
+
+echo
 echo "curl http://localhost/sugar"
 curl http://localhost/sugar
 
