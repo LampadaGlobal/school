@@ -49,4 +49,12 @@ echo
 echo "curl http://localhost/sugar/rest/v10/oauth2/token"
 curl http://localhost/sugar/rest/v10/oauth2/token
 
+echo
+echo "docker network inspect sugar710_default"
+docker network inspect sugar710_default
+
+echo
+echo "docker network ls"
+docker network ls
+
 newman run ../data/ProfessorM_PostmanCollection.json -e ../data/ProfessorM_PostmanEnvironment.json
