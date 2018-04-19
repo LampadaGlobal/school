@@ -11,8 +11,8 @@ fi
 ######################################################################
 
 # Install Newman, so we can execute the tests
-apt-get install npm
-npm install -g newman
+#apt-get install npm
+#npm install -g newman
 
 
 ######################################################################
@@ -64,4 +64,6 @@ echo "currentDockerContainer $currentDockerContainer"
 docker network connect sugar710_default $currentDockerContainer
 docker network inspect sugar710_default
 
-newman run ../data/ProfessorM_PostmanCollection.json -e ../data/ProfessorM_PostmanEnvironment.json
+#newman run ../data/ProfessorM_PostmanCollection.json -e ../data/ProfessorM_PostmanEnvironment.json
+docker pull postman/newman_ubuntu1404
+docker run -v /Users/lschaefer/git/school/data:/etc/newman -t postman/newman_ubuntu1404 run "ProfessorM_PostmanCollection.json" --environment="ProfessorM_PostmanEnvironment.json"
