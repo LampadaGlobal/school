@@ -58,7 +58,7 @@ echo "docker network ls"
 docker network ls
 
 echo
-currentDockerContainer=$(cat /etc/hostname)
+currentDockerContainer="$(cat /etc/hostname)"
 echo "currentDockerContainer $currentDockerContainer"
 docker network connect sugar710_default $currentDockerContainer
 docker network inspect sugar710_default
