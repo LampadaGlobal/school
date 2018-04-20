@@ -26,8 +26,18 @@ fi
 
 #TODO:  customize the volume
 # works locally and in jenkins
-#docker run -v /Users/lschaefer/git/school/data:/etc/newman --net="host" -t postman/newman_ubuntu1404 run "ProfessorM_PostmanCollection.json" --environment="ProfessorM_PostmanEnvironment.json"
+docker run -v /Users/lschaefer/git/school/data:/etc/newman --net="host" -t postman/newman_ubuntu1404 run "ProfessorM_PostmanCollection.json" --environment="ProfessorM_PostmanEnvironment.json"
 
 # testing for Travis
-echo $(pwd)/../data
-docker run -v $(pwd)/../data:/etc/newman --net="host" -t postman/newman_ubuntu1404 run "ProfessorM_PostmanCollection.json" --environment="ProfessorM_PostmanEnvironment.json"
+#echo $(pwd)/../data
+#docker run -v $(pwd)/../data:/etc/newman --net="host" -t postman/newman_ubuntu1404 run "ProfessorM_PostmanCollection.json" --environment="ProfessorM_PostmanEnvironment.json"
+
+######################################################################
+# Cleanup
+######################################################################
+
+if [[ -n $currentDockerContainer ]]
+then
+    #TODO: customize the stack
+    docker network disconnect sugar710_default $currentDockerContainer
+fi
