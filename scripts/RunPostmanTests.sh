@@ -67,6 +67,8 @@ curl http://localhost/sugar
 
 curl http://localhost/sugar/
 
+curl localhost/sugar/index.php
+
 curl http://sugar-web1/sugar
 
 cd workspace/sugardocker/data/app/sugar
