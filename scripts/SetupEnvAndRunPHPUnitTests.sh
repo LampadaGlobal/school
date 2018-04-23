@@ -70,7 +70,7 @@ mkdir workspace
 # Setup the environment for PHPUnit tests and run them
 ######################################################################
 
-echo "docker compose version"
+echo "docker-compose --version"
 docker-compose --version
 
 ./StartDockerStack.sh $sugarVersion $sugarDockerDirectory || exit 1
