@@ -72,6 +72,12 @@ mkdir workspace
 
 #./StartDockerStack.sh $sugarVersion $sugarDockerDirectory || exit 1
 
+#TODO
+mkdir workspace/sugardocker
+mkdir workspace/sugardocker/data
+mkdir workspace/sugardocker/data/app
+mkdir workspace/sugardocker/data/app/sugar
+
 ./GetCopyOfSugar.sh $email $password $sugarName "$(dirname "$sugarDirectory")" $sugarSourceZipsDirectory || exit 1
 
 ./CloneSugarUnitTestsFromGitRepo.sh $sugarVersion $gitHubUsername $gitHubPassword || exit 1
