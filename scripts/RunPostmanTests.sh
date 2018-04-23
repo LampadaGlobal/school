@@ -15,6 +15,7 @@ docker pull postman/newman_ubuntu1404
 
 currentDockerContainer="$(cat /etc/hostname)"
 currentDockerContainer="$(basename "$(head /proc/self/cgroup)")"
+echo "currentDockerContainer $currentDockerContainer"
 if [[ -n $currentDockerContainer ]]
 then
     #TODO: customize the stack
@@ -53,6 +54,10 @@ curl http://localhost/sugar
 curl http://localhost/sugar/
 
 curl http://sugar-web1/sugar
+
+cd workspace/sugardocker/data/app/sugar
+ls
+
 
 ######################################################################
 # Cleanup
