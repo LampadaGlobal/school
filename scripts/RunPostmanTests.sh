@@ -74,9 +74,9 @@ curl -v4 http://sugar-web1/sugar
 cd workspace/sugardocker/data/app/sugar
 ls
 
-docker exec sugar-web1 bash -c "pwd"
+docker exec sugar-web1 bash -c "echo pwd && pwd"
 
-docker exec sugar-web1 bash -c "ls"
+docker exec sugar-web1 bash -c "echo ls && ls"
 
 ######################################################################
 # Cleanup
