@@ -217,8 +217,8 @@ cd $sugarDirectory
 rm -f $cookieFile
 
 # Set the file permissions for when sudo is required and is not required
-chmod -R 777 .
-sudo chmod -R 777 .
+chmod -R 777 . &> /dev/null
+sudo chmod -R 777 . &> /dev/null
 
 
 #######################################################################
