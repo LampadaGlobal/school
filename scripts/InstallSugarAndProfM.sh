@@ -74,11 +74,16 @@ fi
 
 echo "Installing Sugar..."
 # Install Sugar using the configs in config_si.php
-docker exec sugar-web1 bash -c "php cliSilentInstall.php"
+#TODO
+#docker exec sugar-web1 bash -c "php cliSilentInstall.php"
+cd $sugarDirectory
+php cliSilentInstall.php
 
 ######################################################################
 # Install the Professor M Module Loadable Package
 ######################################################################
 
 echo "Installing the Professor M module loadable package..."
-docker exec sugar-web1 bash -c "php cliModuleInstall.php -i . -z sugarcrm-ProfessorM-standard.zip"
+#TODO
+#docker exec sugar-web1 bash -c "php cliModuleInstall.php -i . -z sugarcrm-ProfessorM-standard.zip"
+php cliModuleInstall.php -i . -z sugarcrm-ProfessorM-standard.zip

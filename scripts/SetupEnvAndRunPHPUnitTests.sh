@@ -70,13 +70,13 @@ mkdir workspace
 # Setup the environment for PHPUnit tests and run them
 ######################################################################
 
-./StartDockerStack.sh $sugarVersion $sugarDockerDirectory || exit 1
+#./StartDockerStack.sh $sugarVersion $sugarDockerDirectory || exit 1
 
 #TODO
-#mkdir workspace/sugardocker
-#mkdir workspace/sugardocker/data
-#mkdir workspace/sugardocker/data/app
-#mkdir workspace/sugardocker/data/app/sugar
+mkdir workspace/sugardocker
+mkdir workspace/sugardocker/data
+mkdir workspace/sugardocker/data/app
+mkdir workspace/sugardocker/data/app/sugar
 
 ./GetCopyOfSugar.sh $email $password $sugarName "$(dirname "$sugarDirectory")" $sugarSourceZipsDirectory || exit 1
 
@@ -88,8 +88,8 @@ mkdir workspace
 
 ./InstallSugarAndProfM.sh $sugarDirectory || exit 1
 
-./RunProfMPHPUnitTests.sh $sugarDirectory || exit 1
+#./RunProfMPHPUnitTests.sh $sugarDirectory || exit 1
 
 ./RunPostmanTests.sh || exit 1
 
-./StopDockerStack.sh $sugarVersion $sugarDockerDirectory || exit 1
+#./StopDockerStack.sh $sugarVersion $sugarDockerDirectory || exit 1

@@ -14,9 +14,9 @@ fi
 docker pull postman/newman_ubuntu1404
 
 currentDockerContainer="$(cat /etc/hostname)"
-cat /proc/self/cgroup
-currentDockerContainer="$(basename "$(head /proc/self/cgroup)")"
-echo "currentDockerContainer $currentDockerContainer"
+#cat /proc/self/cgroup
+#currentDockerContainer="$(basename "$(head /proc/self/cgroup)")"
+#echo "currentDockerContainer $currentDockerContainer"
 
 if [[ -n $currentDockerContainer ]]
 then
@@ -26,10 +26,6 @@ then
 fi
 
 netstat -tulpn
-
-while ! mysqladmin ping -h 127.0.0.1; do
-    sleep 1
-done
 
 ######################################################################
 # Run the Postman tests
@@ -74,9 +70,6 @@ curl -v4 http://sugar-web1/sugar
 cd workspace/sugardocker/data/app/sugar
 ls
 
-docker exec sugar-web1 bash -c "echo pwd && pwd"
-
-docker exec sugar-web1 bash -c "echo ls && ls"
 
 ######################################################################
 # Cleanup
