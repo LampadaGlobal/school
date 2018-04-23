@@ -58,7 +58,7 @@ rm $sugarDirectory/composer.lock
 
 # Install the dependencies
 #TODO
-cd $sugarDirectory
-composer install
+#cd $sugarDirectory
+#composer install
 
-#docker exec sugar-web1 bash -c "composer install"
+docker exec sugar-web1 bash -c "composer install"

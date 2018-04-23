@@ -22,8 +22,8 @@ jobs:
     php: '7.1'
     services:
     - docker
-    - mysql
-    - elasticsearch
+#    - mysql
+#    - elasticsearch
     env:
     - SUGAR_VERSION=7.10 SUGAR_EDITION=Ent
     before_script:
