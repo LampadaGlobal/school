@@ -14,12 +14,10 @@ fi
 docker pull postman/newman_ubuntu1404
 
 currentDockerContainer="$(cat /etc/hostname)"
-sleep 5
 cat /proc/self/cgroup
 currentDockerContainer="$(basename "$(head /proc/self/cgroup)")"
 echo "currentDockerContainer $currentDockerContainer"
 
-currentDockerContainer="2.session"
 if [[ -n $currentDockerContainer ]]
 then
     #TODO: customize the stack
@@ -59,17 +57,19 @@ docker network ls
 
 docker network inspect host
 
-curl http://127.0.0.1/sugar
+sleep 15
 
-curl http://127.0.0.1/sugar/
+curl -v4 http://127.0.0.1/sugar
 
-curl http://localhost/sugar
+curl -v4 http://127.0.0.1/sugar/
 
-curl http://localhost/sugar/
+curl -v4 http://localhost/sugar
 
-curl localhost/sugar/index.php
+curl -v4 http://localhost/sugar/
 
-curl http://sugar-web1/sugar
+curl -v4 localhost/sugar/index.php
+
+curl -v4 http://sugar-web1/sugar
 
 cd workspace/sugardocker/data/app/sugar
 ls
