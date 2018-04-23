@@ -29,7 +29,7 @@ fi
 
 netstat -tulpn
 
-while ! mysqladmin ping -h 127.0.0.1 --silent; do
+while ! mysqladmin ping -h 127.0.0.1; do
     sleep 1
 done
 
@@ -59,9 +59,9 @@ docker network ls
 
 docker network inspect host
 
-curl http://localhost/sugar
+curl http://127.0.0.1/sugar
 
-curl http://localhost/sugar/
+curl http://127.0.0.1/sugar/
 
 curl http://sugar-web1/sugar
 
