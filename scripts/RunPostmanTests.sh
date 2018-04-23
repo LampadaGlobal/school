@@ -35,6 +35,8 @@ echo $(pwd)
 echo $(pwd)/../data
 docker run -v $(pwd)/../data:/etc/newman -t postman/newman_ubuntu1404 run "ProfessorM_PostmanCollection.json" --environment="ProfessorM_PostmanEnvironment.json"
 
+docker ps
+
 docker network inspect sugar710_default
 
 docker network ls
