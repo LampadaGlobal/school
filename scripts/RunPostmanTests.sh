@@ -17,6 +17,7 @@ currentDockerContainer="$(cat /etc/hostname)"
 if [[ -n $currentDockerContainer ]]
 then
     #TODO: customize the stack
+    echo "Updating the Docker network..."
     docker network connect sugar710_default $currentDockerContainer
 fi
 
@@ -26,11 +27,13 @@ fi
 
 #TODO:  customize the volume
 # works locally and in jenkins
-docker run -v /Users/lschaefer/git/school/data:/etc/newman --net="host" -t postman/newman_ubuntu1404 run "ProfessorM_PostmanCollection.json" --environment="ProfessorM_PostmanEnvironment.json"
+#docker run -v /Users/lschaefer/git/school/data:/etc/newman --net="host" -t postman/newman_ubuntu1404 run "ProfessorM_PostmanCollection.json" --environment="ProfessorM_PostmanEnvironment.json"
+
 
 # testing for Travis
-#echo $(pwd)/../data
-#docker run -v $(pwd)/../data:/etc/newman --net="host" -t postman/newman_ubuntu1404 run "ProfessorM_PostmanCollection.json" --environment="ProfessorM_PostmanEnvironment.json"
+echo $(pwd)
+echo $(pwd)/../data
+docker run -v $(pwd)/../data:/etc/newman -t postman/newman_ubuntu1404 run "ProfessorM_PostmanCollection.json" --environment="ProfessorM_PostmanEnvironment.json"
 
 ######################################################################
 # Cleanup
