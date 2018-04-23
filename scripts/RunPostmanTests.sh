@@ -37,6 +37,8 @@ docker run -v $(pwd)/../data:/etc/newman -t postman/newman_ubuntu1404 run "Profe
 
 docker ps
 
+docker inspect $HOSTNAME
+
 docker network inspect sugar710_default
 
 docker network ls
