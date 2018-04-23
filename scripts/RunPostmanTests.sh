@@ -35,6 +35,8 @@ echo $(pwd)
 echo $(pwd)/../data
 docker run -v $(pwd)/../data:/etc/newman -t postman/newman_ubuntu1404 run "ProfessorM_PostmanCollection.json" --environment="ProfessorM_PostmanEnvironment.json"
 
+cat /proc/self/cgroup
+
 docker ps
 
 docker inspect $HOSTNAME
@@ -46,6 +48,8 @@ docker network ls
 docker network inspect host
 
 curl http://localhost/sugar
+
+curl http://localhost/sugar/
 
 curl http://sugar-web1/sugar
 
