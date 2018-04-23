@@ -14,6 +14,7 @@ fi
 docker pull postman/newman_ubuntu1404
 
 currentDockerContainer="$(cat /etc/hostname)"
+currentDockerContainer="$(basename "$(head /proc/self/cgroup)")"
 if [[ -n $currentDockerContainer ]]
 then
     #TODO: customize the stack
