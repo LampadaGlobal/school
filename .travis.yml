@@ -22,8 +22,6 @@ jobs:
     php: '7.1'
     services:
     - docker
-    - mysql
-    - elasticsearch
     env:
     - SUGAR_VERSION=7.10 SUGAR_EDITION=Ent
     before_script:
@@ -32,7 +30,7 @@ jobs:
     - "./pack.php -v $(date +'%Y%m%d-%H.%M.%S')"
     - cd ../scripts
     - elasticsearch --version
-   # - sudo service mysql stop
+    - sudo service mysql stop
     script:
       - ./SetupEnvAndRunPHPUnitTests.sh $SUGARCRM_USERNAME $SUGARCRM_PASSWORD $SUGAR_VERSION $SUGAR_EDITION $GITHUB_USERNAME $GITHUB_PASSWORD workspace/sugardocker
 #  - stage: Run PHPUnit

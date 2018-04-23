@@ -57,8 +57,4 @@ perl -0777 -i -pe "s#,\n *{\n *\"type\"\: \"composer\",\n *\"url\"\: \"https:\/\
 rm $sugarDirectory/composer.lock
 
 # Install the dependencies
-#TODO
-cd $sugarDirectory
-composer install
-
-#docker exec sugar-web1 bash -c "composer install"
+docker exec sugar-web1 bash -c "composer install"
